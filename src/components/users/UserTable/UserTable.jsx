@@ -1,36 +1,30 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { useSelector } from 'react-redux';
+import css from './UserTable.module.scss';
 import { usersSls } from '../../../redux/users';
 
 const UserTable = () => {
     const users = useSelector(usersSls.getAllUsers);
 
     return (
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table>
             <TableHead>
                 <TableRow>
-                    <TableCell>Dessert (100g serving)</TableCell>
-                    <TableCell align="right">Calories</TableCell>
-                    <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                    <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                    <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                    <TableCell>№</TableCell>
+                    <TableCell>Аватар</TableCell>
+                    <TableCell>Имя</TableCell>
+                    <TableCell>Возраст</TableCell>
+                    <TableCell>Статус</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
-                {users.map(row => (
-                    <TableRow
-                        key={row.name}
-                        sx={{
-                            '&:last-child td, &:last-child th': { border: 0 },
-                        }}
-                    >
-                        <TableCell component="th" scope="row">
-                            {row.name}
-                        </TableCell>
-                        <TableCell align="right">{row.calories}</TableCell>
-                        <TableCell align="right">{row.fat}</TableCell>
-                        <TableCell align="right">{row.carbs}</TableCell>
-                        <TableCell align="right">{row.protein}</TableCell>
+                {users.map(({ id, avatar, name, age, status }, index) => (
+                    <TableRow className={css.tableRow} key={id}>
+                        <TableCell>{index}</TableCell>
+                        <TableCell>{avatar}</TableCell>
+                        <TableCell>{name}</TableCell>
+                        <TableCell>{age}</TableCell>
+                        <TableCell>{status}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>
