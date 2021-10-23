@@ -1,11 +1,7 @@
-import { Container } from './common';
+import { UsersView } from '../views';
 
 const App = () => {
-    return (
-        <Container>
-            <div>hello</div>
-        </Container>
-    );
+    return <UsersView />;
 };
 
 export default App;

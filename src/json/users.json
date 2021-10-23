@@ -1,0 +1,51 @@
+[
+    {
+        "id": "",
+        "avatar": "",
+        "name": "Vasya Pupkin",
+        "age": 40,
+        "status": "Active"
+    },
+    {
+        "id": "",
+        "avatar": "",
+        "name": "Slavik Balochkin",
+        "age": 35,
+        "status": "-"
+    },
+    {
+        "id": "",
+        "avatar": "",
+        "name": "Petya Lisak",
+        "age": 30,
+        "status": "-"
+    },
+    {
+        "id": "",
+        "avatar": "",
+        "name": "Dima Dudarchik",
+        "age": 45,
+        "status": "Active"
+    },
+    {
+        "id": "",
+        "avatar": "",
+        "name": "Katya Philipchuk",
+        "age": 50,
+        "status": "Active"
+    },
+    {
+        "id": "",
+        "avatar": "",
+        "name": "Nadya Kokoshko",
+        "age": 25,
+        "status": "-"
+    },
+    {
+        "id": "",
+        "avatar": "",
+        "name": "Lena Ismaylova",
+        "age": 20,
+        "status": "-"
+    }
+]
