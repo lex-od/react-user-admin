@@ -1,0 +1,15 @@
+td {
+    .tableRow:last-child & {
+        border: 0;
+    }
+}
+
+.emptyNotification {
+    margin: 0;
+    padding: 16px;
+
+    color: rgba(0, 0, 0, 0.87);
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
