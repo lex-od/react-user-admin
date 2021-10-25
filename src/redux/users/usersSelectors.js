@@ -4,13 +4,15 @@ const getAllUsers = state => state.users.list;
 
 const getUserById = (state, userId) => getAllUsers(state).find(({ id }) => id === userId);
 
+const getActiveList = state => state.users.activeList;
+
 const getSortBy = state => state.users.sortBy;
 
 const getSortOrder = state => state.users.sortOrder;
 
-const getSortedUsers = createSelector(
-    [getAllUsers, getSortBy, getSortOrder],
-    (users, sortBy, sortOrder) => {
+const getSortedUsersWithStatus = createSelector(
+    [getAllUsers, getActiveList, getSortBy, getSortOrder],
+    (users, activeList, sortBy, sortOrder) => {
         const compareStrings = (userA, userB) => {
             const strA = userA[sortBy].toLowerCase();
             const strB = userB[sortBy].toLowerCase();
@@ -36,15 +38,27 @@ const getSortedUsers = createSelector(
 
         const isNumeric = sortBy === 'age';
 
-        return [...users].sort(isNumeric ? compareNumbers : compareStrings);
+        const sortedUsers = [...users].sort(isNumeric ? compareNumbers : compareStrings);
+
+        const sortedUsersWithStatus = sortedUsers.map(user => {
+            const activeListItem = activeList.find(({ id }) => id === user.id);
+
+            if (activeListItem) {
+                return { ...user, isActive: activeListItem.isActive };
+            }
+            return user;
+        });
+
+        return sortedUsersWithStatus;
     },
 );
 
 const usersSelectors = {
     getAllUsers,
     getUserById,
+    getActiveList,
     getSortBy,
     getSortOrder,
-    getSortedUsers,
+    getSortedUsersWithStatus,
 };
 export default usersSelectors;

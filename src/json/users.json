@@ -2,43 +2,36 @@
     {
         "id": "1",
         "name": "Vasya Pupkin",
-        "age": 40,
-        "status": "Active"
+        "age": 40
     },
     {
         "id": "2",
         "name": "Slavik Balochkin",
-        "age": 35,
-        "status": "-"
+        "age": 35
     },
     {
         "id": "3",
         "name": "Petya Lisak",
-        "age": 30,
-        "status": "-"
+        "age": 30
     },
     {
         "id": "4",
         "name": "Dima Dudarchik",
-        "age": 45,
-        "status": "Active"
+        "age": 45
     },
     {
         "id": "5",
         "name": "Katya Philipchuk",
-        "age": 50,
-        "status": "Active"
+        "age": 50
     },
     {
         "id": "6",
         "name": "Nadya Kokoshko",
-        "age": 25,
-        "status": "-"
+        "age": 25
     },
     {
         "id": "7",
         "name": "Lena Ismaylova",
-        "age": 20,
-        "status": "-"
+        "age": 20
     }
 ]

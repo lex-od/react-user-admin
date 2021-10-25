@@ -16,7 +16,7 @@ import css from './UserTable.module.scss';
 import { usersSls, usersActs } from '../../../redux/users';
 
 const UserTable = () => {
-    const sortedUsers = useSelector(usersSls.getSortedUsers);
+    const users = useSelector(usersSls.getSortedUsersWithStatus);
     const sortBy = useSelector(usersSls.getSortBy);
     const sortOrder = useSelector(usersSls.getSortOrder);
     const dispatch = useDispatch();
@@ -62,7 +62,7 @@ const UserTable = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {sortedUsers.map(({ id, avatar, name, age, status }, index) => (
+                    {users.map(({ id, avatar, name, age, isActive }, index) => (
                         <TableRow className={css.tableRow} key={id}>
                             <TableCell>{index + 1}</TableCell>
                             <TableCell size="small">
@@ -74,7 +74,7 @@ const UserTable = () => {
                             </TableCell>
                             <TableCell>{name}</TableCell>
                             <TableCell>{age}</TableCell>
-                            <TableCell>{status}</TableCell>
+                            <TableCell>{isActive ? 'Активен' : '-'}</TableCell>
                             <TableCell size="small">
                                 <IconButton
                                     component={Link}
@@ -95,7 +95,7 @@ const UserTable = () => {
                 </TableBody>
             </Table>
 
-            {!sortedUsers.length && <p className={css.emptyNotification}>Список пуст</p>}
+            {!users.length && <p className={css.emptyNotification}>Список пуст</p>}
         </div>
     );
 };
