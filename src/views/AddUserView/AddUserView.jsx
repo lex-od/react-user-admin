@@ -11,7 +11,7 @@ const AddUserView = () => {
     const history = useHistory();
 
     const handleAddUser = newUser => {
-        dispatch(usersActs.addUser({ ...newUser, avatar: '', status: '-' }));
+        dispatch(usersActs.addUser({ ...newUser, status: '-' }));
 
         history.push(routes.home);
     };

@@ -3,6 +3,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import shortid from 'shortid';
+import { createAvatar } from '@dicebear/avatars';
+import * as avatarStyles from '@dicebear/avatars-identicon-sprites';
 
 import css from './UserForm.module.scss';
 import routes from '../../../routes';
@@ -10,8 +12,8 @@ import routes from '../../../routes';
 const userSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Не менее 2 символов').required('Обязательно'),
     age: Yup.number()
-        .typeError('Введите цисло')
-        .integer('Введите целое цисло')
+        .typeError('Введите число')
+        .integer('Введите целое число')
         .min(1, 'От 1')
         .max(100, 'До 100')
         .required('Обязательно'),
@@ -28,6 +30,9 @@ const UserForm = ({ onSubmit, initValues = {} }) => {
             onSubmit({
                 ...initValues,
                 id: initValues.id || shortid(),
+                avatar: createAvatar(avatarStyles, {
+                    seed: `${name} ${age}`,
+                }),
                 name,
                 age: Number(age),
             });

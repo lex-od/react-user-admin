@@ -28,6 +28,10 @@ const UserTable = () => {
         dispatch(usersActs.setSortOrder(newSortOrder));
     };
 
+    const getAvavtarSrc = avatar => {
+        return `data:image/svg+xml;utf8,${encodeURIComponent(avatar)}`;
+    };
+
     return (
         <div>
             <Table>
@@ -61,7 +65,13 @@ const UserTable = () => {
                     {sortedUsers.map(({ id, avatar, name, age, status }, index) => (
                         <TableRow className={css.tableRow} key={id}>
                             <TableCell>{index + 1}</TableCell>
-                            <TableCell>{avatar}</TableCell>
+                            <TableCell size="small">
+                                <img
+                                    className={css.avatar}
+                                    src={getAvavtarSrc(avatar)}
+                                    alt="Avatar"
+                                />
+                            </TableCell>
                             <TableCell>{name}</TableCell>
                             <TableCell>{age}</TableCell>
                             <TableCell>{status}</TableCell>

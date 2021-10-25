@@ -1,7 +1,12 @@
-td {
-    .tableRow:last-child & {
+.tableRow:last-child {
+    td {
         border: 0;
     }
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
 }
 
 .emptyNotification {
