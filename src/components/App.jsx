@@ -1,16 +1,16 @@
 import { Route, Switch } from 'react-router';
-import { HomeView } from '../views';
+import { HomeView, AddUserView, EditUserView } from '../views';
 import routes from '../routes';
 
 const App = () => {
     return (
         <Switch>
             <Route path={routes.addUser}>
-                <div>Добавление юзера</div>
+                <AddUserView />
             </Route>
 
             <Route path={routes.editUser}>
-                <div>Редактирование юзера</div>
+                <EditUserView />
             </Route>
 
             <Route path={routes.home}>

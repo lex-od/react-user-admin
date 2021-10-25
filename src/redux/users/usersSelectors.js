@@ -2,6 +2,8 @@ import { createSelector } from '@reduxjs/toolkit';
 
 const getAllUsers = state => state.users.list;
 
+const getUserById = (state, userId) => getAllUsers(state).find(({ id }) => id === userId);
+
 const getSortBy = state => state.users.sortBy;
 
 const getSortOrder = state => state.users.sortOrder;
@@ -40,6 +42,7 @@ const getSortedUsers = createSelector(
 
 const usersSelectors = {
     getAllUsers,
+    getUserById,
     getSortBy,
     getSortOrder,
     getSortedUsers,

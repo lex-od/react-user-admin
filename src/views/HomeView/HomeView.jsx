@@ -9,6 +9,8 @@ import { UserTable } from '../../components/home';
 const HomeView = () => {
     return (
         <Container>
+            <h1 className={css.pageTitle}>Главная страница</h1>
+
             <UserTable />
 
             <div className={css.buttonWrapper}>
